@@ -1,45 +1,42 @@
 .shopinglist-textarea {
-  width: 100px;
+  width: 200px;
   height: 25px;
   border: 1px solid darkgray;
   border-radius: 2px;
 }
-
-input:focus ~ .floating-label,
-input:not(:focus):valid ~ .floating-label{
-  width: 100%;
-  top: -70px;
-  font-size: 12px;
-  opacity: 1;
+.shopinglist-block {
+ /* width: 200px;*/
+  
 }
 
-input[type=text], input[type=password] {
-  width: 300px;
-  margin: 15px 0 20px 0;
+
+input[type=text] {
+  width: 100%;
+  margin: 0px;
   background: #ffffff;
-  border-bottom: 1px solid #0058AB;
-  font-family: 'Open Sans', sans-serif;  
+  border-bottom: 1px solid #0058AB;  
   outline: none;
   border-top: 0px;
   border-left: 0px;
   border-right: 0px;
+  border-radius: 7px;
 }
 
-input[type=text]:focus, input[type=password]:focus {
-  background-color: rgb(255, 255, 255);  
-  font-family: 'Open Sans', sans-serif;  
+input[type=text]:focus {
+  background-color: rgb(255, 255, 255); 
   transition: .3s cubic-bezier(.25,.8,.5,1);
   -webkit-transition: .33s cubic-bezier(.25,.8,.5,1);
-  width: 300px;
-  border-bottom: 2px solid #0058AB;  
+  width: 100%;
+  border-bottom: 2px solid #0058AB; 
+  border-radius: 7px; 
   transform: scaleX(1);  
 }
 
 input[type=text]::after {
   transition: .3s cubic-bezier(.25,.8,.5,1);
   -webkit-transition: .3s cubic-bezier(.25,.8,.5,1);
-  width: 200px;
-  border-bottom: 2px solid rgb(236, 136, 5);  
+  width: 100%;
+  border-bottom: 2px solid #0058AB;  
   transform: scaleX(1);  
 }
 
@@ -74,21 +71,35 @@ input[type=checkbox]:checked:after {
   left: 0px;  
 }
 
-.shopinglist-floating-label {
+
+.floating-label {
   position: relative;
   pointer-events: none;
-  top: 0px;
-  left: -200px;
+  top: -30px;
+  right: -130px;
   transition: 0.2s ease all;
-  font-size: 16px;
+  font-size: 18px;
   color:rgb(77, 77, 77);
-  padding: 8px;
+  padding: 14px;
 }
 
-input:focus ~ .floating-label,
-input:not(:focus):valid ~ .floating-label{
-  width: 100%;
-  top: -70px;
-  font-size: 12px;
-  opacity: 1;
+input:focus ~ .floating-label {
+  width: 150px;
+  top: -40px;
+  right: -270px;
+  font-size: 11px;
+  font-weight: bold;
+ /* opacity: 1;*/
+}
+
+.shoppinglist-items {
+  display: flex;
+  width: 350px;
+  flex-direction: column;
+}
+
+.inputText {
+  font-size: 16px;
+  width: 200px;
+  height: 35px;  
 }

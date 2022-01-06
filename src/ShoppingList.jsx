@@ -1,33 +1,28 @@
 import React from 'react'
-import { useState } from 'react/cjs/react.development'
 import './styles/shoppinglist.css'
 
-export default function ShoppingList({item, setItem}) {
-  /*const [item, setItem] = useState([])
-  const [items, setItems] = useState([])
-  const [showItem, setShowItem] = useState(false)
-  const toggleItems = () => setItems(...items, item)
-  const toggleShowItem = () => {
-    setItems([...items, item])
-  }*/
-  console.log('items:', item)
+export default function ShoppingList({ setItem, setPrice }) {
+
   return (
     <>
-      <div>
-        <label className='factors-label'>
-          <input type="checkbox" />
+      <div className='shoppinglist-items'>
+        <div>
           <input
-            onChange={(e) => setItem([e.target.value])}
-            value={item}
+            onChange={(e) => setItem(e.target.value)}
             type="text"
-            className='shopinglist-textarea'
+            className="inputText"
           />
-          {/*<span className='shopinglist-floating-label'>write order</span>*/}
-        </label>
+          <span className='floating-label'>write order</span>
+        </div>
+        <div>
+          <input
+            onChange={(e) => setPrice (e.target.value )}
+            type="text"
+            className="inputText"
+          />
+          <span className='floating-label'>write price</span>
+        </div>
       </div>
-      {/*<div className='app-button' onClick={toggleShowItem}>
-          Show item
-  </div>*/}
     </>
   )
 }
