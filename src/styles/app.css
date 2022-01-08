@@ -39,5 +39,23 @@
   border: 1px solid black;
 }
 
+.app-sort {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 45%;
+}
+
+.app-sort-completed {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  justify-content: space-between;
+}
+
+.app-sort-kind {
+  cursor: pointer;
+}
+
 
 
