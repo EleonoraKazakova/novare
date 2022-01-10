@@ -4,11 +4,6 @@
   border: 1px solid darkgray;
   border-radius: 2px;
 }
-.shopinglist-block {
- /* width: 200px;*/
-  
-}
-
 
 input[type=text] {
   width: 100%;
@@ -20,6 +15,7 @@ input[type=text] {
   border-left: 0px;
   border-right: 0px;
   border-radius: 7px;
+  touch-action: manipulation;
 }
 
 input[type=text]:focus {
@@ -29,7 +25,8 @@ input[type=text]:focus {
   width: 100%;
   border-bottom: 2px solid #0058AB; 
   border-radius: 7px; 
-  transform: scaleX(1);  
+  transform: scaleX(1);
+  touch-action: manipulation;  
 }
 
 input[type=text]::after {
@@ -37,65 +34,23 @@ input[type=text]::after {
   -webkit-transition: .3s cubic-bezier(.25,.8,.5,1);
   width: 100%;
   border-bottom: 2px solid #0058AB;  
-  transform: scaleX(1);  
-}
-
-input[type=checkbox] {
-  position: relative;
-  cursor: pointer;
-}
-
-input[type=checkbox]:before {
-  content: "";
-  display: block;
-  width: 16px;
-  height: 16px;
-  top: 0;
-  left: 0;
-  border: 1px solid #555555;
-  border-radius: 3px;
-  background-color: white;
-  
-}
-
-input[type=checkbox]:checked:after {
-  content: "";
-  display: block;
-  background-color: rgb(153, 221, 204);
-  width: 16px;
-  height: 16px;
-  border: 1px solid rgb(66, 66, 66);
-  position: absolute;
-  border-radius: 3px;
-  top: 0px;
-  left: 0px;  
+  transform: scaleX(1); 
+  touch-action: manipulation; 
 }
 
 
-.floating-label {
-  position: relative;
-  pointer-events: none;
-  top: -30px;
-  right: -130px;
-  transition: 0.2s ease all;
-  font-size: 18px;
-  color:rgb(77, 77, 77);
-  padding: 14px;
-}
 
-input:focus ~ .floating-label {
-  width: 150px;
-  top: -40px;
-  right: -270px;
-  font-size: 11px;
-  font-weight: bold;
- /* opacity: 1;*/
-}
+
+
+
+
+
 
 .shoppinglist-items {
   display: flex;
   width: 350px;
   flex-direction: column;
+  gap: 10px;
 }
 
 .inputText {

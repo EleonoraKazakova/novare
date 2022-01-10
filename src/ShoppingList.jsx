@@ -1,27 +1,32 @@
 import React from 'react'
+import { useState } from 'react/cjs/react.development'
 import './styles/shoppinglist.css'
 
 export default function ShoppingList({ setItem, setPrice }) {
+  const [message, setMessage] = useState(false)
 
   return (
     <>
       <div className='shoppinglist-items'>
-        <div>
+        <label>
           <input
             onChange={(e) => setItem(e.target.value)}
             type="text"
             className="inputText"
+            placeholder="Write order"
           />
-          <span className='floating-label'>write order</span>
-        </div>
-        <div>
+        </label>
+
+        <label>
           <input
-            onChange={(e) => setPrice (e.target.value )}
+            onChange={(e) => e.target.value.match(/^[0-9]+$/) ? setPrice(e.target.value) : setMessage(!message)}
             type="text"
             className="inputText"
+            placeholder="Write price"
           />
-          <span className='floating-label'>write price</span>
-        </div>
+          {message ? <p>You need to write numbers</p> : null}
+        </label>
+
       </div>
     </>
   )

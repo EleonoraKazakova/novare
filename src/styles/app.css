@@ -5,6 +5,13 @@
   min-height: 100vh;
 }
 
+.app-block{
+ width: 50%;
+ display: flex;
+ gap: 20px;
+ flex-direction: column;
+}
+
 .app-header {
   grid-column: 1 / 4;
   grid-row: 1 / 2;
@@ -37,6 +44,8 @@
   background-color: aliceblue;
   border-radius: 5px;
   border: 1px solid black;
+  font-family: 'Times New Roman', Times, serif;
+  
 }
 
 .app-sort {
@@ -49,12 +58,18 @@
 .app-sort-completed {
   display: flex;
   flex-direction: row;
-  width: 50%;
   justify-content: space-between;
 }
 
 .app-sort-kind {
   cursor: pointer;
+}
+
+.app-items {
+  display: flex;
+  gap: 10px;
+  justify-content: start;
+  flex-direction: column;
 }
 
 

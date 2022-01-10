@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ShoppingList from './ShoppingList'
 import './styles/app.css'
 import HomePage from './Homepage'
@@ -6,7 +6,14 @@ import HomePage from './Homepage'
 export default function App() {
   const [item, setItem] = useState('')
   const [price, setPrice] = useState('')
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState(() => {
+    console.log('error')
+    try {
+      return JSON.parse(localStorage.getItem('items')) ?? []
+    }
+    catch { return [] }
+  })
+  useEffect(() => localStorage.setItem('items', JSON.stringify(items)), [items])
 
   const [addItem, setAddItem] = useState(false)
   const toggleAddItem = () => {
@@ -14,7 +21,10 @@ export default function App() {
     if (item === '') {
       return
     }
-    setItems([...items, { item: item, price: price, checked: false }])
+    if (item.length > 0 && price.length > 0) {
+      setItems([...items, { item: item, price: price, checked: false }])
+    }
+
     setItem('')
   }
 
@@ -31,14 +41,15 @@ export default function App() {
     setItems(arr)
   }
 
-
+  const [checkedHide, setCheckedHide] = useState(false)
+  const toggleCheckedHide = () => setCheckedHide(!checkedHide)
 
   const sortItems = () => {
-    setItems([...items].sort((a, b) => a[item] > b[item] ? 1 : -1))
+    setItems([...items].sort((a, b) => a['item'] > b['item'] ? 1 : -1))
   }
 
   const sortPrice = () => {
-    setItems([...items].sort((a, b) => a[price] > b[price] ? 1 : -1))
+    setItems([...items].sort((a, b) => a['price'] > b['price'] ? 1 : -1))
   }
   console.log('items:', items)
 
@@ -47,39 +58,45 @@ export default function App() {
       <div className='app-header'></div>
       <div className='app-content'>
         <HomePage />
+        <div className='app-block'>
+          {items.length > 0
+            ? <div className='app-sort-completed'>
+              <div>
+                <input
+                  type='checkbox'
+                  name='sort'
+                  checked={checkedHide}
+                  onChange={() => toggleCheckedHide()}
+                />
+                <label key='sort' >completed/acquired</label>
+              </div>
+              <div className='app-sort'> Sort by:
+                <div onClick={() => sortItems()} className='app-sort-kind'>  Name </div>
+                <div onClick={() => sortPrice()} className='app-sort-kind'>  Price </div>
+              </div>
+            </div>
+            : null}
 
-        {items.length > 0
-          ? <div className='app-sort-completed'>
-            <div>
-              <input
-                type='checkbox'
-                name='sort'
-              />
-              <label for='sort'>completed/acquired</label>
-            </div>
-            <div className='app-sort'> Sort by:
-              <div onClick={() => sortItems()} className='app-sort-kind'>  Name </div>
-              <div onClick={() => sortPrice()} className='app-sort-kind'>  Price </div>
-            </div>
+          <div className={items.length > 0 ? 'app-items' : null}>
+            {
+              items.map((el, index) => el.checked && checkedHide
+                ? null
+                : <div>
+                  <input type="checkbox" checked={el.checked} onChange={() => toggleChecked(index)} />
+                  <label key={el}> {el['item']}, ${el['price']}</label>
+                </div>
+              )
+            }
           </div>
-          : null}
 
-        {items.map((el, index) => <div>
-          <input type="checkbox" checked={el.checked} onChange={() => toggleChecked(index)} />
-          <label for={el}> {el['item']}, ${el['price']}</label>
-        </div>)
-        }
-
-
-
-
-        {addItem
-          ? <ShoppingList
-            setItem={setItem}
-            setPrice={setPrice}
-          />
-          : null
-        }
+          {addItem
+            ? <ShoppingList
+              setItem={setItem}
+              setPrice={setPrice}
+            />
+            : null
+          }
+        </div>
         <div className='app-button' onClick={toggleAddItem}>
           Add item
         </div>
