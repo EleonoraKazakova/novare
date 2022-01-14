@@ -1,0 +1,31 @@
+@media (max-width: 899px) {
+  .sorting-sort-completed {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 900px) {
+  .sorting-sort-completed {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.sorting-sort {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.sorting-sort-kind {
+  cursor: pointer;
+}
+
+.sorting-sort-bold {
+  font-weight: bold;
+  cursor: pointer;
+}

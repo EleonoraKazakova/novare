@@ -1,76 +1,164 @@
-.app-grid {
-  display: grid;
-  grid-template-columns: auto 800px auto;
-  grid-template-rows: 60px auto 100px ;
-  min-height: 100vh;
+@media (min-width: 900px) {
+  .app-grid {
+    display: grid;
+    grid-template-columns: auto 850px auto;
+    grid-template-rows: 60px auto 100px;
+    min-height: 100vh;
+  }
+
+  .app-block {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+  }
+
+  .app-header {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+    background-color: #fbd914;
+  }
+
+  .app-content {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .app-footer {
+    grid-column: 1 / 4;
+    grid-row: 3 / 4;
+    background-color: #0058AB;
+  }
+
+  .app-button {
+    display: flex;
+    width: 100px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+    border-radius: 5px;
+    border: 1px solid black;
+    font-family: 'Times New Roman', Times, serif;
+
+  }
+
+  .app-sort {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 45%;
+  }
+
+  .app-sort-completed {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .app-sort-kind {
+    cursor: pointer;
+  }
+
+  .app-items {
+    display: flex;
+    gap: 10px;
+    justify-content: start;
+    flex-direction: column;
+  }
+
+  .app-footer {
+    grid-column: 1 / 4;
+    grid-row: 3 / 4;
+    background-color: #0058AB;
+    display: flex;
+    justify-content: center;
+    color: white;
+    align-items: center;
+  }
+
 }
 
-.app-block{
- width: 50%;
- display: flex;
- gap: 20px;
- flex-direction: column;
+@media (max-width: 899px) {
+  .app-grid {
+    display: grid;
+    grid-template-columns: auto 300px auto;
+    grid-template-rows: 30px auto 50px;
+    min-height: 100vh;
+  }
+
+  .app-block {
+    /*width: 100%;*/
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+  }
+
+  .app-header {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+    background-color: #fbd914;
+  }
+
+  .app-content {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0 10px 0;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .app-footer {
+    grid-column: 1 / 4;
+    grid-row: 3 / 4;
+    background-color: #0058AB;
+    display: flex;
+    justify-content: center;
+    color: white;
+    align-items: center;
+  }
+
+  .app-button {
+    display: flex;
+    width: 100px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+    border-radius: 5px;
+    border: 1px solid black;
+    font-family: 'Times New Roman', Times, serif;
+
+  }
+
+  .app-sort {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 45%;
+  }
+
+  .app-sort-completed {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .app-sort-kind {
+    cursor: pointer;
+  }
+
+  .app-items {
+    display: flex;
+    gap: 10px;
+    justify-content: start;
+    flex-direction: column;
+  }
+
 }
-
-.app-header {
-  grid-column: 1 / 4;
-  grid-row: 1 / 2;
-  background-color: #fbd914;
-}
-
-.app-content {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-  background-color: rgb(240, 240, 240);
-  display: flex;
-  flex-direction: column;
-  padding: 50px;
-  align-items: center;
-  gap: 50px;
-}
-
-.app-footer {
-  grid-column: 1 / 4;
-  grid-row: 3 / 4;
-  background-color: #0058AB;
-}
-
-.app-button {
-  display: flex;
-  width: 100px;
-  height: 30px;
-  justify-content: center;
-  align-items: center;
-  background-color: aliceblue;
-  border-radius: 5px;
-  border: 1px solid black;
-  font-family: 'Times New Roman', Times, serif;
-  
-}
-
-.app-sort {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 45%;
-}
-
-.app-sort-completed {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.app-sort-kind {
-  cursor: pointer;
-}
-
-.app-items {
-  display: flex;
-  gap: 10px;
-  justify-content: start;
-  flex-direction: column;
-}
-
-
-

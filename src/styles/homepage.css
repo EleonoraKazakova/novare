@@ -8,6 +8,13 @@
   align-items: center;
 }
 
-.title {
+.homepage-title {
   font-size: 25px;
+}
+
+.homepage-text {
+  /*text-align: center;*/
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
