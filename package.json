@@ -14,8 +14,11 @@
     "test": "jest __tests__/",
     "run": "npm run-script",
     "serve": "webpack serve",
-    "type": "module"
+    "build": "webpack --config webpack.config.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
+  "homepage": "http://eleonorakazakova.github.io/novare",
   "author": "",
   "license": "ISC",
   "dependencies": {

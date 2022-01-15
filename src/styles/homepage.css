@@ -10,11 +10,11 @@
 
 .homepage-title {
   font-size: 25px;
+  font-weight: bold;
 }
 
 .homepage-text {
-  /*text-align: center;*/
+  text-align: center;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
 }

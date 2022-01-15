@@ -39,24 +39,21 @@ export default function App() {
     <div className='app-grid'>
       <div className='app-header'></div>
       <div className='app-content'>
-        <HomePage />
-        {/*<div className='app-block'>*/}
+        <HomePage items={items} />
 
-          <ItemsContext.Provider value={objItems}>
-            <Control />
-          </ItemsContext.Provider>
+        {items.length > 0 ? <ItemsContext.Provider value={objItems}>
+          <Control />
+        </ItemsContext.Provider> : null}
 
-          <div className='app-items'>
-            {addItem
-              ? <ShoppingList
-                setItem={setItem}
-                setPrice={setPrice}
-              />
-              : null
-            }
-          </div>
-
-        {/*</div>*/}
+        <div className='app-items'>
+          {addItem
+            ? <ShoppingList
+              setItem={setItem}
+              setPrice={setPrice}
+            />
+            : null
+          }
+        </div>
 
         <button className='app-button' onClick={toggleAddItem}>
           Add item

@@ -1,5 +1,5 @@
 @media (max-width: 899px) {
-  .sorting-sort-completed {
+  .sorting-completed {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -8,24 +8,25 @@
 }
 
 @media (min-width: 900px) {
-  .sorting-sort-completed {
+  .sorting-completed {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
   }
 }
-.sorting-sort {
+
+.sorting-block {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   gap: 10px;
 }
 
-.sorting-sort-kind {
+.sorting-kind {
   cursor: pointer;
 }
 
-.sorting-sort-bold {
+.sorting-bold {
   font-weight: bold;
   cursor: pointer;
 }

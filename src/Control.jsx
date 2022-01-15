@@ -45,7 +45,7 @@ export default function Control() {
             ? null
             : <div>
               <input type="checkbox" checked={el.checked} onChange={() => toggleChecked(index)} />
-              <label key={el}> {el['item']}, ${el['price']}, {el['completed'] ? null : 'completed order'}</label>
+              <label key={el}> {el['item']}, ${el['price']}, {el['completed'] ? 'completed order' : null }</label>
             </div>
           )
         }

@@ -1,20 +1,26 @@
 import React from 'react'
-import Logo from './images/logo.png'
 import './styles/homepage.css'
+import Logo from './images/logo.png'
 
-export default function HomePage() {
-  
+export default function HomePage({ items }) {
+
   return (
     <>
-      <img src={Logo} className='homepage-logo' />
+      {items.length > 0
+        ? null
+        : <img src={Logo} className='homepage-logo' />}
+
       <div className='homepage-title'>Shopping list</div>
-      <div className='homepage-content'>
-        <p>Hello!</p>
-        <div className='homepage-text'>
-        <p>We are happy to welcome you to our website! </p>
-        <p>You can click on the button and add orders.</p>
-        </div>
-      </div>     
+
+      {items.length > 0
+        ? null
+        : <div className='homepage-content'>
+          <p>Hello!</p>
+          <div className='homepage-text'>
+            <p>We are happy to welcome you to our website!</p>
+            <p>You can click on the button and add orders.</p>
+          </div>
+        </div>}
     </>
   )
 }

@@ -16,20 +16,21 @@ export default function Sorting() {
   const sortPrice = () => {
     objItems.setItems([...objItems.items].sort((a, b) => a['price'] > b['price'] ? 1 : -1))
     setClickPrice(!clickPrice)
-    setClickName('')    
-  }  
+    setClickName('')
+  }
 
   return (
-    <div className='sorting-sort-completed'>
+    <div className='sorting-completed'>
 
-      <div className='sorting-sort'> Sort by:
+      <div className='sorting-block'>
+        <p>Sort by:</p>
         <div onClick={() => sortItems()}
-          className={clickName ? 'sorting-sort-bold' : 'sorting-sort-kind'}>
-          Name
+          className={clickName ? 'sorting-bold' : 'sorting-kind'}>
+          <p>Name</p>
         </div>
-        <div onClick={() => sortPrice()} 
-        className={clickPrice ? 'sorting-sort-bold' : 'sorting-sort-kind'}>
-          Price
+        <div onClick={() => sortPrice()}
+          className={clickPrice ? 'sorting-bold' : 'sorting-kind'}>
+          <p>Price</p>
         </div>
       </div>
     </div>)
