@@ -323,6 +323,8 @@
     width: 100%;
     justify-content: space-between;
     gap: 10px;
+    border-bottom: 1px solid darkgray;
+    padding: 0 5px 5px 5px;
   }
 
   .control-items {
@@ -331,12 +333,18 @@
     justify-content: start;
     flex-direction: column;
     margin-top: 10px;
-  }  
+  }
 }
 
+  .control-copleted {
+    color: red;
+  }
 
-
-
+  .control-line {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+  }
 
 /*!**************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/styles/sorting.css ***!
@@ -376,10 +384,19 @@
 /*!*************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/styles/styles.css ***!
   \*************************************************************************/
+@font-face {
+  font-family: NotoSans;
+  src: url(fa11626fafb16c629d2c.ttf);
+}
+@font-face {
+  font-family: NotoSans;
+  src: url(66ab29744a551a59e9f5.ttf);
+  font-weight: bold;
+}
+
 body {
   margin: 0;
   background-color: rgb(250, 250, 250);
-  font-size: 16px;
 }
 
 h2, h3, h4, p, label, button {
@@ -398,4 +415,6 @@ h2, h3, h4 {
 
 * {
   box-sizing: border-box;
+  font-family: NotoSans;
 }
+
