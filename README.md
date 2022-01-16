@@ -7,20 +7,36 @@ In this project I use React Hooks:
   - useContext
 
 The user enters the following:
-  - the name of an order
-  - the price of an order
+  - the name of an item
+  - the price of an item
 
-The user can mark orders as completed and hide .
+The user can mark items as completed and hide.
 
 ## Installation
 
-**npm install**
-You can use this command for starting a project.
-__npm install__ downloads a package and it's dependencies.
+**You can use this command to download dependencies.**
+```
+npm install
+``` 
 
-**npm run serve**
-Starts the server
-#npm run serve
+**Starts the server**
+```
+npm run serve
+```
 
-## Open the site
+## Open the site by terminal
 http://localhost:8080/
+
+**Starts tests**
+```
+npm test
+```
+
+**Starts eslint**
+```
+npm run lint
+```
+## Public address
+http://eleonorakazakova.github.io/novare
+
+![image](./src/images/site.jpg)

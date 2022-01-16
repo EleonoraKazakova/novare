@@ -1,7 +1,16 @@
+@font-face {
+  font-family: NotoSans;
+  src: url(./fonts/NotoSans-Regular.ttf);
+}
+@font-face {
+  font-family: NotoSans;
+  src: url(./fonts/NotoSans-Bold.ttf);
+  font-weight: bold;
+}
+
 body {
   margin: 0;
   background-color: rgb(250, 250, 250);
-  font-size: 16px;
 }
 
 h2, h3, h4, p, label, button {
@@ -20,4 +29,5 @@ h2, h3, h4 {
 
 * {
   box-sizing: border-box;
+  font-family: NotoSans;
 }

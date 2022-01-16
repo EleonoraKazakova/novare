@@ -1,10 +1,13 @@
 module.exports = {
-  "extends": "eslint:recommended",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
   "rules": {
     // enable additional rules
-    "indent": ["error", 4],
+    "indent": ["error", 2],
     "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "double"],
+    "quotes": ["error", "single"],
     "semi": ["error", "always"],
     'immutable/no-mutation': 2,
 
@@ -14,9 +17,13 @@ module.exports = {
 
     // disable rules from base configurations
     "for-direction": "off",
+    "react/prop-types": "off"
   },
   plugins: [
     'immutable'
   ],
-  
+  "parser": "@babel/eslint-parser",
+  "env": {
+    "browser": true
+  }
 }

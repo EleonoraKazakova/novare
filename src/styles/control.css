@@ -34,6 +34,8 @@
     width: 100%;
     justify-content: space-between;
     gap: 10px;
+    border-bottom: 1px solid darkgray;
+    padding: 0 5px 5px 5px;
   }
 
   .control-items {
@@ -42,9 +44,15 @@
     justify-content: start;
     flex-direction: column;
     margin-top: 10px;
-  }  
+  }
 }
 
+  .control-copleted {
+    color: red;
+  }
 
-
-
+  .control-line {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+  }

@@ -1,27 +1,27 @@
-import React, { useContext, useState } from 'react'
-import './styles/control.css'
-import Sorting from './Sorting'
-import {ItemsContext } from './App'
+import React, { useContext, useState } from 'react';
+import './styles/control.css';
+import Sorting from './Sorting';
+import {ItemsContext } from './App';
 
 export default function Control() {
-  const objItems = useContext(ItemsContext)  
+  const itemsContext = useContext(ItemsContext);  
 
-  const [checkedHide, setCheckedHide] = useState(false)
-  const toggleCheckedHide = () => setCheckedHide(!checkedHide)
+  const [checkedHide, setCheckedHide] = useState(false);
+  const toggleCheckedHide = () => setCheckedHide(!checkedHide);
 
   // toggleChecked will change checked value to opposite value for element with given index in items
   const toggleChecked = (index) => {
-    let arr = []
-    for (let i = 0; i < objItems.items.length; i++) {
+    let arr = [];
+    for (let i = 0; i < itemsContext.items.length; i++) {
       if (i === index) {
-        arr.push({ item: objItems.items[i]['item'], price: objItems.items[i]['price'], checked: !objItems.items[i]['checked'], completed: !objItems.items[i]['completed'] })
+        arr.push({ item: itemsContext.items[i]['item'], price: itemsContext.items[i]['price'], checked: !itemsContext.items[i]['checked'], completed: !itemsContext.items[i]['completed'] });
       } else {
-        arr.push(objItems.items[i])
+        arr.push(itemsContext.items[i]);
       }
     }
-    objItems.setItems(arr)
-  }
- console.log('objItems:', objItems)
+    itemsContext.setItems(arr);
+  };
+ 
   return (
     <div className='control-content'>
       <div className='control-block'>
@@ -31,25 +31,26 @@ export default function Control() {
             type='checkbox'
             name='sort'
             checked={checkedHide}
-            onChange={() => toggleCheckedHide()}
+            onChange={toggleCheckedHide}
           />
-          <label key='sort'>Hide completed orders</label>
+          <label key='sort'>Hide completed items</label>
         </div>
 
         <Sorting />
 
       </div>
-      <div className={objItems.items.length > 0 ? 'control-items' : null}>
+      <div className={itemsContext.items.length > 0 ? 'control-items' : null}>
         {
-          objItems.items.map((el, index) => el.checked && checkedHide
+          itemsContext.items.map((el, index) => el.checked && checkedHide
             ? null
-            : <div>
+            : <div className='control-line'>
               <input type="checkbox" checked={el.checked} onChange={() => toggleChecked(index)} />
-              <label key={el}> {el['item']}, ${el['price']}, {el['completed'] ? 'completed order' : null }</label>
+              <label key={el}> {el.item}, ${el.price} </label>
+              <p className='control-copleted'> {el.completed ? 'completed item' : null }</p>
             </div>
           )
         }
       </div>
     </div>
-  )
+  );
 }

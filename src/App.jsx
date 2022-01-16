@@ -1,39 +1,39 @@
-import React, { useState, useEffect, createContext } from 'react'
-import ShoppingList from './ShoppingList'
-import './styles/app.css'
-import HomePage from './Homepage'
-import Control from './Control'
+import React, { useState, useEffect, createContext } from 'react';
+import ShoppingList from './ShoppingList';
+import './styles/app.css';
+import HomePage from './Homepage';
+import Control from './Control';
 
-const ItemsContext = createContext()
-export { ItemsContext }
+const ItemsContext = createContext();
+export { ItemsContext };
 
 export default function App() {
 
-  const [item, setItem] = useState('')
-  const [price, setPrice] = useState('')
+  const [item, setItem] = useState('');
+  const [price, setPrice] = useState('');
   const [items, setItems] = useState(() => {
-    console.log('error')
     try {
-      return JSON.parse(localStorage.getItem('items')) ?? []
+      return JSON.parse(localStorage.getItem('items')) ?? [];
+    } catch {
+      return [];
     }
-    catch { return [] }
-  })
+  });
 
-  useEffect(() => localStorage.setItem('items', JSON.stringify(items)), [items])
+  useEffect(() => localStorage.setItem('items', JSON.stringify(items)), [items]);
 
-  const [addItem, setAddItem] = useState(false)
+  const [addItem, setAddItem] = useState(false);
   const toggleAddItem = () => {
-    setAddItem(!addItem)
+    setAddItem(!addItem);
     if (item === '') {
-      return
+      return;
     }
     if (item.length > 0 && price.length > 0) {
-      setItems([...items, { item: item, price: price, checked: false, completed: false }])
+      setItems([...items, { item: item, price: Number(price), checked: false, completed: false }]);
     }
-    setItem('')
-  }
+    setItem('');
+  };
 
-  const objItems = { items, setItems }
+  const itemsContext = { items, setItems };
 
   return (
     <div className='app-grid'>
@@ -41,9 +41,11 @@ export default function App() {
       <div className='app-content'>
         <HomePage items={items} />
 
-        {items.length > 0 ? <ItemsContext.Provider value={objItems}>
-          <Control />
-        </ItemsContext.Provider> : null}
+        {items.length > 0
+          ? <ItemsContext.Provider value={itemsContext}>
+            <Control />
+          </ItemsContext.Provider>
+          : null}
 
         <div className='app-items'>
           {addItem
@@ -64,5 +66,5 @@ export default function App() {
       <div className='app-footer'>Copyright by Eleonora Kazakova 2022</div>
 
     </div>
-  )
+  );
 }

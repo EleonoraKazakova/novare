@@ -1,6 +1,6 @@
-import React from 'react'
-import './styles/homepage.css'
-import Logo from './images/logo.png'
+import React from 'react';
+import './styles/homepage.css';
+import Logo from './images/logo.png';
 
 export default function HomePage({ items }) {
 
@@ -22,5 +22,5 @@ export default function HomePage({ items }) {
           </div>
         </div>}
     </>
-  )
+  );
 }
