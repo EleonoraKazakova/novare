@@ -1,11 +1,11 @@
 @media (min-width: 900px) {
-  .control-content {
+  .shopingList-content {
     display: flex;
     flex-direction: column;
     width: 60%;
   }
 
-  .control-block {
+  .shopingList-block {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -14,7 +14,7 @@
     margin-bottom: 10px;
   }
 
-  .control-items {
+  .shopingList-items {
     display: flex;
     gap: 10px;
     justify-content: start;
@@ -23,12 +23,12 @@
 }
 
 @media (max-width: 899px) {
-  .control-content {
+  .shopingList-content {
     display: flex;
     flex-direction: column;
   }
 
-  .control-block {
+  .shopingList-block {
     display: flex;
     flex-direction: column-reverse;
     width: 100%;
@@ -38,7 +38,7 @@
     padding: 0 5px 5px 5px;
   }
 
-  .control-items {
+  .shopingList-items {
     display: flex;
     gap: 10px;
     justify-content: start;
@@ -47,11 +47,11 @@
   }
 }
 
-  .control-copleted {
+  .shopingList-copleted {
     color: red;
   }
 
-  .control-line {
+  .shopingList-line {
     display: flex;
     flex-direction: row;
     gap: 5px;

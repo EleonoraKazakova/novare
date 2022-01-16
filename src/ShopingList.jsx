@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
-import './styles/control.css';
+import './styles/shopingList.css';
 import Sorting from './Sorting';
 import {ItemsContext } from './App';
 
-export default function Control() {
+export default function ShopingList() {
   const itemsContext = useContext(ItemsContext);  
 
   const [checkedHide, setCheckedHide] = useState(false);
@@ -23,8 +23,8 @@ export default function Control() {
   };
  
   return (
-    <div className='control-content'>
-      <div className='control-block'>
+    <div className='shopingList-content'>
+      <div className='shopingList-block'>
 
         <div>
           <input
@@ -39,14 +39,14 @@ export default function Control() {
         <Sorting />
 
       </div>
-      <div className={itemsContext.items.length > 0 ? 'control-items' : null}>
+      <div className={itemsContext.items.length > 0 ? 'shopingList-items' : null}>
         {
           itemsContext.items.map((el, index) => el.checked && checkedHide
             ? null
-            : <div className='control-line'>
+            : <div className='shopingList-line' key={el.item + el.price}>
               <input type="checkbox" checked={el.checked} onChange={() => toggleChecked(index)} />
-              <label key={el}> {el.item}, ${el.price} </label>
-              <p className='control-copleted'> {el.completed ? 'completed item' : null }</p>
+              <label > {el.item}, ${el.price} </label>
+              <p className='shopingList-copleted'> {el.completed ? 'completed item' : null }</p>
             </div>
           )
         }

@@ -1,8 +1,8 @@
 import React, { useState, useEffect, createContext } from 'react';
-import ShoppingList from './ShoppingList';
+import InputForm from './InputForm';
 import './styles/app.css';
 import HomePage from './Homepage';
-import Control from './Control';
+import ShopingList from './ShopingList';
 
 const ItemsContext = createContext();
 export { ItemsContext };
@@ -43,13 +43,13 @@ export default function App() {
 
         {items.length > 0
           ? <ItemsContext.Provider value={itemsContext}>
-            <Control />
+            <ShopingList />
           </ItemsContext.Provider>
           : null}
 
         <div className='app-items'>
           {addItem
-            ? <ShoppingList
+            ? <InputForm
               setItem={setItem}
               setPrice={setPrice}
             />

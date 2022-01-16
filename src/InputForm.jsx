@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import './styles/shoppinglist.css';
+import './styles/inputForm.css';
 
-export default function ShoppingList({ setItem, setPrice }) {
+export default function InputForm({ setItem, setPrice }) {
   const [showErrorMessage, setShowErrorMessage] = useState(false);
 
   return (
     <>
-      <div className='shoppinglist-items'>
+      <div className='inputForm-items'>
         <div>
           <input
             onChange={(e) => setItem(e.target.value)}
             type="text"
-            className="inputText"
+            className="inputForm-text"
             placeholder="Write item"
           />
         </div>
@@ -20,10 +20,10 @@ export default function ShoppingList({ setItem, setPrice }) {
           <input
             onChange={(e) => e.target.value.match(/^[0-9]+$/) ? setPrice(e.target.value) : setShowErrorMessage(!showErrorMessage)}
             type="text"
-            className="inputText"
+            className="inputForm-text"
             placeholder="Write price"
           />
-          {showErrorMessage ? <p className='shoppinglist-message'>You need to write numbers</p> : null}
+          {showErrorMessage ? <p className='inputForm-message'>You need to write numbers</p> : null}
         </div>
 
       </div>
