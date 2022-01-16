@@ -1,8 +1,8 @@
-/*!*******************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/styles/shoppinglist.css ***!
-  \*******************************************************************************/
+/*!****************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/styles/inputForm.css ***!
+  \****************************************************************************/
 @media (min-width: 899px) {
-  .shopinglist-textarea {
+  .inputForm-textarea {
     width: 200px;
     height: 25px;
     border: 1px solid darkgray;
@@ -33,20 +33,20 @@
     border-bottom: 2px solid #0058AB;
   }
 
-  .shoppinglist-items {
+  .inputForm-items {
     display: flex;
     width: 350px;
     flex-direction: column;
     gap: 10px;
   }
 
-  .inputText {
+  .inputForm-text {
     font-size: 16px;
     width: 200px;
     height: 35px;
   }
 
-  .shoppinglist-message {
+  .inputForm-message {
     color: red;
   }
 }
@@ -81,18 +81,18 @@
     border-bottom: 2px solid #0058AB;    
   }
 
-  .shoppinglist-items {
+  .inputForm-items {
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
 
-  .inputText {
+  .inputForm-text {
     font-size: 16px;
     height: 35px;
   }
 
-  .shoppinglist-message {
+  .inputForm-message {
     color: red;
   }
 
@@ -284,17 +284,17 @@
   display: flex;
   flex-direction: column;
 }
-/*!**************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/styles/control.css ***!
-  \**************************************************************************/
+/*!******************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/styles/shopingList.css ***!
+  \******************************************************************************/
 @media (min-width: 900px) {
-  .control-content {
+  .shopingList-content {
     display: flex;
     flex-direction: column;
     width: 60%;
   }
 
-  .control-block {
+  .shopingList-block {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -303,7 +303,7 @@
     margin-bottom: 10px;
   }
 
-  .control-items {
+  .shopingList-items {
     display: flex;
     gap: 10px;
     justify-content: start;
@@ -312,12 +312,12 @@
 }
 
 @media (max-width: 899px) {
-  .control-content {
+  .shopingList-content {
     display: flex;
     flex-direction: column;
   }
 
-  .control-block {
+  .shopingList-block {
     display: flex;
     flex-direction: column-reverse;
     width: 100%;
@@ -327,7 +327,7 @@
     padding: 0 5px 5px 5px;
   }
 
-  .control-items {
+  .shopingList-items {
     display: flex;
     gap: 10px;
     justify-content: start;
@@ -336,11 +336,11 @@
   }
 }
 
-  .control-copleted {
+  .shopingList-copleted {
     color: red;
   }
 
-  .control-line {
+  .shopingList-line {
     display: flex;
     flex-direction: row;
     gap: 5px;
