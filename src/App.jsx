@@ -1,70 +1,74 @@
-import React, { useState, useEffect, createContext } from 'react';
-import InputForm from './InputForm';
-import './styles/app.css';
-import HomePage from './Homepage';
-import ShopingList from './ShopingList';
+// you don't need to import react.
+import React, { useState, useEffect, createContext } from "react";
+import InputForm from "./InputForm";
+import "./styles/app.css";
+import HomePage from "./Homepage";
+import ShopingList from "./ShopingList";
 
 const ItemsContext = createContext();
 export { ItemsContext };
 
 export default function App() {
-
-  const [item, setItem] = useState('');
-  const [price, setPrice] = useState('');
+  const [item, setItem] = useState("");
+  const [price, setPrice] = useState("");
+  // complex logic inside a initializer state -1
   const [items, setItems] = useState(() => {
     try {
-      return JSON.parse(localStorage.getItem('items')) ?? [];
+      return JSON.parse(localStorage.getItem("items")) ?? [];
     } catch {
       return [];
     }
   });
 
-  useEffect(() => localStorage.setItem('items', JSON.stringify(items)), [items]);
+  useEffect(
+    () => localStorage.setItem("items", JSON.stringify(items)),
+    [items]
+  );
 
+  // you have variables scattered around the document -1
   const [addItem, setAddItem] = useState(false);
+
+  // your functions should be functions, i will explain this on the course
   const toggleAddItem = () => {
     setAddItem(!addItem);
-    if (item === '') {
+    if (item === "") {
       return;
     }
     if (item.length > 0 && price.length > 0) {
-      setItems([...items, { item: item, price: Number(price), checked: false, completed: false }]);
+      setItems([
+        ...items,
+        { item: item, price: Number(price), checked: false, completed: false },
+      ]);
     }
-    setItem('');
+    setItem("");
   };
 
   const itemsContext = { items, setItems };
 
+  //This main JSX have too many pieces of logic (if/else) (something or null), etc. making it harder to follow -3
   return (
-    <div className='app-grid'>
-      <div className='app-header'></div>
-      <div className='app-content'>
+    // this is bem CSS nomenclature? (just a question, nothing to grade)
+    <div className="app-grid">
+      <div className="app-header"></div>
+      <div className="app-content">
         <HomePage items={items} />
 
-        {items.length > 0
-          ? <ItemsContext.Provider value={itemsContext}>
+        {items.length > 0 ? (
+          <ItemsContext.Provider value={itemsContext}>
             <ShopingList />
           </ItemsContext.Provider>
-          : null}
+        ) : null}
 
-        <div className='app-items'>
-          {addItem
-            ? <InputForm
-              setItem={setItem}
-              setPrice={setPrice}
-            />
-            : null
-          }
+        <div className="app-items">
+          {addItem ? <InputForm setItem={setItem} setPrice={setPrice} /> : null}
         </div>
 
-        <button className='app-button' onClick={toggleAddItem}>
+        <button className="app-button" onClick={toggleAddItem}>
           Add item
         </button>
-
       </div>
 
-      <div className='app-footer'>Copyright by Eleonora Kazakova 2022</div>
-
+      <div className="app-footer">Copyright by Eleonora Kazakova 2022</div>
     </div>
   );
 }
