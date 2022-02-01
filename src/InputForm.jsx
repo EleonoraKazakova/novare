@@ -3,6 +3,14 @@ import './styles/inputForm.css';
 
 export default function InputForm({ setItem, setPrice }) {
   const [showErrorMessage, setShowErrorMessage] = useState(false);
+  const toogleError = (price) => {
+    if ( price.match(/^[1-9][0-9]*$/) ) { 
+      setPrice(price)
+      setShowErrorMessage(false) 
+    } else {
+      setShowErrorMessage(true)
+    }     
+  }
 
   return (
     <>
@@ -18,12 +26,12 @@ export default function InputForm({ setItem, setPrice }) {
 
         <div>
           <input
-            onChange={(e) => e.target.value.match(/^[0-9]+$/) ? setPrice(e.target.value) : setShowErrorMessage(!showErrorMessage)}
+            onChange={(e) => toogleError(e.target.value) }
             type="text"
             className="inputForm-text"
             placeholder="Write price"
           />
-          {showErrorMessage ? <p className='inputForm-message'>You need to write numbers</p> : null}
+          {showErrorMessage ? <p className='inputForm-message'>You need to write the right price</p> : null}
         </div>
 
       </div>
